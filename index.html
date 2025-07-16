@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Merriweather&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <style>
+        /* Opening Picture */
+        header h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 80px;
+            font-weight: bold; 
+            color: white;
+            text-shadow:6px 6px 0 #222;
+        }
+        header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 40px;
+            font-weight: bold; 
+            color: white;
+            text-shadow:4px 4px 0 #222;
+        }
+        header p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+            text-shadow:2px 2px 0 #222;
+        }
+        body {
+            font-family: Open, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #bec5d7;
+        }
+        header {
+            background: url(https://lh3.googleusercontent.com/gps-cs/AIky0YVVVdGnDsCtUMNx3CXGWEfXDmSzmQ5IZa9s0QwSe1RkXEcPtexj6iqux6cNwsyGkqQvvNUZ6IVPfepnJ2Q8J9UkqyohXDtI3EoB4mb4qFT8pK7B25EqTGwnxQl69F65BxtZc6TN=w1200-h642-p-k-no);
+            background-size: cover;
+            background-position: bottom bottom;
+            padding:130px 30px;
+            text-align: center;
+        }
+
+        .welcome-section {
+            background: url(https://img.freepik.com/premium-vector/colorful-pastel-minimalist-background-with-line-leaves_5379-578.jpg);
+            padding: 50px 20px;
+            background-size: cover;
+            background-position: center center;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: normal;
+            line-height: 1.2;
+            color: #2e3c54;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .welcome-section h1 {
+            font-family: 'Playfair Display', Serif;
+            font-size: 40px;
+            font-weight: bold; 
+            color:  #3b4e6e;
+            margin: 10px;
+            line-height: 1.2;
+            
+        }
+        .welcome-section p {
+        text-align: center;
+        padding:10px 90px;
+        color:  #3b4e6e;
+        margin: 10px;
+        }
+
+        h2 {
+            color: white;
+        }
+        footer {
+            text-align: center;
+            color: #3b4e6e;
+            padding: 10px;
+            font-size: 14px;
+        }
+        /* Button Section*/
+        html {
+            scroll-behavior: smooth;
+        }
+        .button-bar {
+            display: flex;
+            justify-content: space-between;
+            margin: 0px 0;
+            padding: 0px;
+        }
+        .button-bar a { /*the actual buttons*/
+        flex: 1; /* Each button takes equal width */
+        text-align: center;
+        padding: 40px 0;
+        background: #fff;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        text-decoration: none;
+        color: #3b4e6e;
+        font-family: 'Merriweather', serif;
+        font-size:40px;
+        font-weight: bold;
+        border: none;
+        border-radius: 0; /* No rounded corners */
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+        .button-bar a:hover {
+            box-shadow: 5px 5px 12px rgba(0,0,0,0.3);
+            background: #f0f0f0;
+            transform: translateY(-4px);
+        }
+        /* Sections Styling */
+        section {
+            min-height: 100vh;
+            padding: 40px 60px;
+            border-top: .5px solid #fcfcfc;
+        }
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color:#3b4e6e;
+            font-family: 'Merriweather', serif;
+            text-align: center;
+        }
+        section h5 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color:white;
+            font-family: 'Merriweather', serif;
+            text-align: center;
+        }
+        section p {
+            font-size: 18px;
+            color: #7b90b6;
+            
+        }
+        section h3 {
+            font-size:24px;
+            color: white;
+            font-weight: bold;
+            font-family: 'Merriweather', serif;
+        }
+        section h4 {
+            font-size:24px;
+            color: #3b4e6e;
+            font-weight: bold;
+            font-family: 'Merriweather', serif;
+            margin-bottom 10px;
+        }
+        section h6 {
+            font-size: 18px;
+            color: #3b4e6e;
+            font-weight: bold;
+            margin: 10px;
+            font-family: 'Montserrat', sans-serif;
+            
+        }
+        /*Chart elements*/
+        .schedule-chart {
+            max-width: 600px;
+            margin: 30px auto;
+        }
+        .bar {
+            display: flex;
+            align-items: right;
+            margin-bottom: 12px;
+        }
+        .label {
+            width: 200px;
+            font-weight: bold;
+            color: #7b90b6;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            text-align: left;
+        }
+        .bar-fill {
+            flex-grow: 1;
+            padding: 8px 12px;
+            color: white;
+            font-size: 14px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 2px 2px 6px rgba(255, 255, 255, 0.2);
+        }
+        /*Accordion Section*/
+        .accordion {
+            background-color: #3b4e6e;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            font-size: 18px;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            transition: background-color 0.3s ease;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+            margin-top: 20px;
+        }
+
+        .accordion:hover {
+            background-color: #50668d;
+        }
+
+        .accordion-panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .accordion-panel ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 15px 0;
+            color: #3b4e6e;
+            font-family: 'Montserrat', sans-serif;
+            text-align: left;
+        }
+        #directions {
+            padding: 0;
+            margin: 0;
+        }
+
+        .direction-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+        }
+
+        .direction-box {
+            flex: 1 1 50%;
+            height:420px; /* or use 50vh for screen-relative height */
+            background-size: 150%;
+            background-position: left bottom;
+            position: relative;
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .direction-content {
+            color: white;
+            padding: 0 20px;
+            margin-bottom: 40px; /* Move text slightly up */
+        }
+
+        .direction-content h3 {
+            margin-bottom: 10px;
+            font-size: 2.0em;
+
+        }
+
+        .direction-content p {
+            margin: 10px 0;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .link-bar-button {
+            display: inline-block;
+            margin-top: 10px;
+            margin-right: 10px;
+            padding: 12px 24px;
+            background-color: #3b4e6e;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .link-bar-button:hover {
+            background-color: #242f42;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .direction-box {
+                flex: 1 1 100%;
+                height: auto;
+                padding: 40px 20px;
+            }
+            .button-bar {
+                flex-direction: column;
+            }
+            .button-bar a {
+                font-size: 28px;
+                padding: 20px 0;
+            }
+            .direction-box {
+                background-size: cover;
+                background-position: center center;
+            }
+}
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 15px 0;
+            color: #3b4e6e;
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+<body>
+<!--Opening Piccture Section-->
+<header>
+    <h1>Timberlane Camp</h1>
+    <h2>Combined Summer Activity</h2>
+    <p>August 1st & 2nd</p>
+</header>
+<!-- Intro Section-->
+<div class="welcome-section">
+    <p>Join us for the</p>
+    <h1>Cold Springs Ranch & Hardman 1st Camping Trip</h1>
+    <p>Bring friends! Make connections! Have Fun!</p>
+    <p> </p>
+    <p>Check out the links below to learn more about our activity! </p>
+</div>
+<!-- Square Buttons -->
+<div class="button-bar">
+    <a href="#dates">Schedule</a>
+    <a href="#directions">Directions</a>
+    <a href="#facilities">Facilities</a>
+  </div>
+  <!-- Dates & Schedule Section -->
+  <section id="dates" style="background-image: url('https://media.istockphoto.com/id/1487963070/vector/futuristic-time-clock-hand-and-clock-face-digital-transformation-abstract-technology.jpg?s=612x612&w=0&k=20&c=vBMcZmwTPz_ofcnAAOQroZr4EIa5BfOIbnkqgIUoxxk='); background-size: cover; background-position: left;">
+    <h5>Dates & Schedule</h5>
+    <p>Got a tight schedule? Find us, and join us when you can! This schedule is very flexible and subject to change.<p>
+    <h3>Friday, August 1st</h3>
+        <div class="schedule-chart">
+            <div class="bar">
+                <span class="label">Carpool - See Directions tab For More Details</span>
+                <div class="bar-fill" style="width:60%; background-color: #ed9e5e;">4:45 PM</div>
+            </div>
+            <div class="bar">
+                <span class="label">Arrive & Set Up Camp</span>
+                <div class="bar-fill" style="width: 60%; background-color: #ed9e5e;">6:00 PM</div>
+            </div>
+            <div class="bar">
+                <span class="label">Dinner & Dessert - Classic BBQ</span>
+                <div class="bar-fill" style="width: 60%; background-color: #ed9e5e;">6:30 PM</div>
+            </div>
+            <div class="bar">
+                <span class="label">Free Time - Sports & Activities</span>
+                <div class="bar-fill" style="width: 60%; background-color: #ed9e5e;">7:30 PM</div>
+            </div>
+            <div class="bar">
+                <span class="label">Smores, Fire & Chill</span>
+                <div class="bar-fill" style="width: 60%; background-color: #ed9e5e;">9:00 PM</div>
+            </div>
+            <div class="bar">
+                <span class="label">Legit NigthLife</span>
+                <div class="bar-fill" style="width: 60%; background-color: #ed9e5e;">10:00 PM - Whenever</div>
+            </div>
+        </div>
+    <h3>Saturday, August 2nd</h3>
+        <div class="schedule-chart">
+            <div class="bar">
+                <span class="label">Breakfast - ???What is it???</span>
+                <div class="bar-fill" style="width:60%; background-color: #ed9e5e;">9:00 AM</div>
+            </div>
+            <div class="bar">
+                <span class="label">Morning Activities</span>
+                <div class="bar-fill" style="width: 60%; background-color: #ed9e5e;">10:00 AM</div>
+            </div>
+            <div class="bar">
+                <span class="label">Pack Up & Cleaning</span>
+                <div class="bar-fill" style="width: 60%; background-color: #ed9e5e;">11:00 AM</div>
+        </div>
+
+    <button class="accordion">Other Free Time Activities</button>
+    <div class="accordion-panel">
+        <ul>
+            <li>Exploring</li>
+            <li>Spikeball</li>
+            <li>Pickleball</li>
+            <li>Volleyball</li>
+            <li>Nine-Square</li>
+            <li>Stargazing</li>
+            <li>Possible Night Hike</li>
+            <li>Board Games</li>
+            <li>Group Games</li>
+            <li>Fires & Story Telling</li>
+            <li>* Make a Recommendation *</li>
+        </ul>
+    </div>
+
+
+        
+  </section> <!--chart & Buttons-->
+  
+  <!--Directions Section-->
+  <section id="directions" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_SFSECyuqkgHo64O_Wmj-vEeS_rxbdA2hQ&s'); background-size: cover; background-position: center;">
+    <h2>Directions & Travel</h2>
+    <div class="direction-container">
+
+        <!-- Carpooling Half -->
+        <div class="direction-box" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9fRZX1gxsofdwz0MelaOwUFCybtDtihDOw66ikuJkFd6c9SEdXOF-FKmg48QKWLkyYPI&usqp=CAU');">
+            <div class="direction-content">
+                <h4>Carpooling</h4>
+                <h6>Both Wards will meet on Friday, August 1st at 4:45pm at the Cold Springs Chapel.</h6>
+                <h6>4000 Cold Spring Dr, Lehi, UT 84043</h6> 
+                <h6>Carpools will leave by 5:00pm, so don't be late!</h6>
+                <a href="https://www.google.com/maps/place/The+Church+of+Jesus+Christ+of+Latter-day+Saints/@40.3950138,-111.9133144,18.24z/data=!4m6!3m5!1s0x874d7f82b11f3edb:0xd558a6e547de5244!8m2!3d40.3955788!4d-111.9125761!16s%2Fg%2F11rw6n8kyq?entry=ttu" target="_blank" class="link-bar-button">Drive to the Chapel</a>
+            </div>
+        </div>
+
+        <!-- Driving to Camp Half -->
+        <div class="direction-box" style="background-image: url('data:image/jpeg;base64,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');">
+            <div class="direction-content">
+                <h4>Driving to Timberlane Camp</h4>
+                <h6>Use Google Maps and search "Timberlane Recreation Camp"</h6>
+                <h6> OR </h6>
+                <h6> Click the link below for a pin to Douglas Fir Campsite.</h6>
+                <a href="https://maps.app.goo.gl/ZLfYp6wBVKdWJp3y8" target="_blank" class="link-bar-button">Pin to Our Campsite</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSexwhEh_9qbFR9QZ_MusX2mPVj7L2Kz5qN6tf4BQFWRtai_LA/viewform" target="_blank" class="link-bar-button"> Register a Carpool</a>
+            </div>
+        </div>
+
+    </div>
+ </section>
+  
+  <section id="facilities" style ="background-image: url('https://media.istockphoto.com/id/1186553317/vector/fluent-motion.jpg?s=612x612&w=0&k=20&c=DxjeydHExk2YfT-LsRlTCPet2ceqdfRD1-uwjZpcWMY='); background-size: cover; background-position: left;">
+    <h2>Facilities & Preparation</h2>
+    <h4>Douglas Fir Campsite</h4>
+    <ul>
+        <li>Sleeping Capacity: 280</li>
+        <li>Running Water - Including Drinking Water</li>
+        <li>Tables</li>
+        <li>Restrooms & Showers</li>
+        <li>Firepits</li>
+        <li>Sleeping A-Frames</li>
+      </ul>
+    <h4>Sleeping Arrangements</h4>
+    <h6>Some individuals will be able to sleep inside sheltered A-Frames, with priority given to ___________?</h6>
+
+    <h4>What Do I Bring?</h4>
+    <div style="display: flex; justify-content: center; gap: 50px; flex-wrap: wrap;">
+
+        <div style="flex: 1; min-width: 250px; text-align: center;">
+            <button class="accordion">For Myself</button>
+            <div class="accordion-panel">
+                <ul>
+                    <li>Sleeping Bag</li>
+                    <li>Sleeping Pad</li>
+                    <li>Tolietries</li>
+                    <li>Water Bottle</li>
+                    <li>Extra Clothes</li>
+                    <li>Flashlight</li>
+                    <li>Games/Entrtainment</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="flex: 1; min-width: 250px; text-align: center;">
+            <button class="accordion">Other Gear</button>
+            <div class="accordion-panel">
+                <p> If you own any of these materials please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSexwhEh_9qbFR9QZ_MusX2mPVj7L2Kz5qN6tf4BQFWRtai_LA/viewform" target="_blank">this form</a> and bring them with you!</p>
+                <ul>
+                    <li>Camping Tents- For 4 or more people</li>
+                    <li>2 or More Camping Chairs</li>
+                    <li>Dutch Oven</li>
+                    <li>Fire Roasting Sticks</li>
+                    <li>Cooler</li>
+                    <li>Extra Sleeping Bags</li>
+                    <li>Smore's Ingredients</li>
+                    <li>Yard Games - Spikeball, Canjam, etc.</li>
+                    <li>Other Treats!</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+  </section>
+
+<footer>
+    &copy; 2025 Cold Spring Ranch YSA Ward
+</footer>
+<!--Java for accordion-->
+<script>
+    const accordions = document.querySelectorAll('.accordion');
+
+    accordions.forEach(button => {
+        button.addEventListener('click', () => {
+            const panel = button.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                    accordions.forEach(button => {
+        button.addEventListener('click', () => {
+            accordions.forEach(btn => {
+                if (btn !== button) {
+                    btn.nextElementSibling.style.maxHeight = null;
+                }
+            });
+            const panel = button.nextElementSibling;
+            panel.style.maxHeight = panel.style.maxHeight ? null : panel.scrollHeight + "px";
+        });
+    });
+                
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    });
+</script>
+<!--continue here-->
+</body>
+</html>
